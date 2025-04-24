@@ -5,34 +5,238 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Desfuda sua Vida Financeira em 30 Dias</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #1e1e1e; color: #fff; }
-    .container { max-width: 480px; margin: 0 auto; padding: 0 12px 40px 12px; }
-    header { text-align: center; padding: 40px 0 20px 0; }
-    .ebook-cover { max-width: 220px; width: 90%; margin: 0 auto 20px auto; display: block; border-radius: 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.45);}
-    .headline { font-size: 2rem; color: #ffc107; margin-bottom: 10px; }
-    .subheadline { font-size: 1.1rem; color: #fff; margin-bottom: 18px; }
-    .cta-btn { background: linear-gradient(90deg,#ff4500 60%, #ffc107 100%); padding: 16px 0; font-size: 1.2rem; color: #1e1e1e; font-weight: bold; border-radius: 6px; text-decoration: none; display: block; margin: 18px auto 0 auto; max-width: 320px; box-shadow: 0 3px 16px rgba(255,69,0,0.18); transition: background 0.2s; text-align: center;}
-    .cta-btn:hover { background: linear-gradient(90deg,#e63946 60%, #ffc107 100%);}
-    .benefits { margin: 30px 0 0 0; }
-    .benefits ul { list-style: none; padding: 0; }
-    .benefits li { font-size: 1.08rem; margin-bottom: 12px; text-align: left; }
-    .benefits li:before { content: "✅ "; color: #ffc107; }
-    .testimonials { background: #292929; padding: 20px 12px; border-radius: 7px; margin: 32px 0 0 0;}
-    .testimonial { margin-bottom: 18px; font-style: italic; }
-    .testimonial b { color: #ffc107; font-weight: 700; display: block; margin-top: 6px;}
-    .comparativo { font-size: 1.1rem; color: #ff4500; text-align: center; margin-top: 24px; }
-    .audio-bonus { background: #252525; padding: 18px 10px; border-radius: 7px; margin-top: 28px; text-align: center;}
-    .garantia { background: #232323; color: #ffc107; border-radius: 7px; padding: 12px; margin: 28px 0 0 0; text-align: center; font-weight: bold;}
-    .faq { background: #222; border-radius: 7px; padding: 16px 10px; margin: 32px 0 0 0;}
-    .faq h2 { color: #ffc107; font-size: 1.1rem; margin-bottom: 10px;}
-    .faq-item { margin-bottom: 12px;}
-    .faq-q { font-weight: bold; color: #ffc107;}
-    .faq-a { color: #fff; margin-top: 3px;}
-    .urgency { color: #ff4500; text-align: center; font-weight: bold; margin-top: 16px;}
-    footer { text-align: center; padding: 20px 0 0 0; font-size: 0.95rem; color: #bbb;}
+    /* Reset básico para evitar margens/paddings inesperados */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 12px 40px 12px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 20px 0;
+    }
+
+    .ebook-cover {
+      max-width: 220px;
+      width: 90%;
+      margin: 0 auto 20px auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    }
+
+    .headline {
+      font-size: 2rem;
+      color: #ffc107;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .subheadline {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .cta-btn {
+      background: linear-gradient(90deg,#ff4500 60%, #ffc107 100%);
+      padding: 16px 0;
+      font-size: 1.2rem;
+      color: #1e1e1e;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      display: block;
+      margin: 18px auto 0 auto;
+      max-width: 320px;
+      box-shadow: 0 3px 16px rgba(255,69,0,0.18);
+      transition: background 0.2s ease-in-out;
+      text-align: center;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:focus {
+      background: linear-gradient(90deg,#e63946 60%, #ffc107 100%);
+      box-shadow: 0 5px 20px rgba(230, 57, 70, 0.5);
+      outline: none;
+    }
+
+    .benefits {
+      margin: 30px 0 0 0;
+    }
+
+    .benefits ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .benefits li {
+      font-size: 1.08rem;
+      margin-bottom: 12px;
+      text-align: left;
+      position: relative;
+      padding-left: 28px;
+      font-weight: 500;
+    }
+
+    .benefits li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ffc107;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .testimonials {
+      background: #292929;
+      padding: 20px 12px;
+      border-radius: 7px;
+      margin: 32px 0 0 0;
+    }
+
+    .testimonial {
+      margin-bottom: 18px;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .testimonial b {
+      color: #ffc107;
+      font-weight: 700;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .comparativo {
+      font-size: 1.1rem;
+      color: #ff4500;
+      text-align: center;
+      margin-top: 24px;
+      font-weight: 600;
+    }
+
+    .audio-bonus {
+      background: #252525;
+      padding: 18px 10px;
+      border-radius: 7px;
+      margin-top: 28px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .garantia {
+      background: #232323;
+      color: #ffc107;
+      border-radius: 7px;
+      padding: 12px;
+      margin: 28px 0 0 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .faq {
+      background: #222;
+      border-radius: 7px;
+      padding: 16px 10px;
+      margin: 32px 0 0 0;
+      font-weight: 400;
+    }
+
+    .faq h2 {
+      color: #ffc107;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      color: #ffc107;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-a {
+      color: #fff;
+      margin-top: 3px;
+      padding-left: 12px;
+      line-height: 1.4;
+    }
+
+    .urgency {
+      color: #ff4500;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 16px;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0 0 0;
+      font-size: 0.95rem;
+      color: #bbb;
+      font-weight: 400;
+    }
+
     @media (max-width: 480px) {
-      .headline { font-size: 1.4rem;}
-      .cta-btn { font-size: 1rem; max-width: 220px;}
+      .headline {
+        font-size: 1.6rem;
+      }
+
+      .subheadline {
+        font-size: 1rem;
+      }
+
+      .cta-btn {
+        font-size: 1rem;
+        max-width: 260px;
+      }
+
+      .benefits li {
+        font-size: 1rem;
+      }
+
+      .comparativo {
+        font-size: 1rem;
+      }
+
+      .audio-bonus {
+        font-size: 0.95rem;
+      }
+
+      .garantia {
+        font-size: 1rem;
+      }
+
+      .faq h2 {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
